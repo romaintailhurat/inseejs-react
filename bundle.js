@@ -74,9 +74,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	console.log('Chargement de l\'application [' + new Date().toTimeString() + ']');
-	console.log('range 10', (0, _utils.range)(10));
-
-	// TODO React app entry point.
+	console.log('Test de la fonction range(10) >> ', (0, _utils.range)(10));
 
 	var App = function (_React$Component) {
 	  _inherits(App, _React$Component);
@@ -103,7 +101,7 @@
 
 	App.propTypes = { titre: _react2.default.PropTypes.string };
 
-	_reactDom2.default.render(_react2.default.createElement(App, { titre: 'Leif' }), document.getElementById('app'));
+	_reactDom2.default.render(_react2.default.createElement(App, { titre: 'l e i f' }), document.getElementById('app'));
 
 /***/ },
 /* 2 */

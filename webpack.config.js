@@ -2,7 +2,7 @@ var path = require("path");
 
 module.exports = {
   entry: {
-    app: ["./main.js"]
+    app: ["./src/js/main.js"]
   },
   module: {
     loaders: [
