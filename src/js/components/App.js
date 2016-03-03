@@ -1,6 +1,7 @@
 import React from 'react';
 import Welcome from './Welcome';
 import Liste from './Liste';
+import Chargement from './Chargement';
 
 export default class App extends React.Component {
 
@@ -16,7 +17,7 @@ export default class App extends React.Component {
   }
 
   getData() {
-    // query
+    // TODO query
     setTimeout(this.updateData.bind(this), 1000);
   }
 
@@ -27,7 +28,7 @@ export default class App extends React.Component {
   render() {
     let comp;
     if (this.state.data === null) {
-      comp = <div>loading...</div>;
+      comp = <Chargement />;
     } else {
       comp = <Liste titre="Naf" contenu={this.state.data} />;
     }
