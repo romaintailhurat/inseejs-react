@@ -10,8 +10,7 @@ module.exports = {
     ]
   },
   output: {
-    path: path.resolve(__dirname, "build"),
-    publicPath: "/assets/",
+    path: __dirname,
     filename: "bundle.js"
   }
 }
