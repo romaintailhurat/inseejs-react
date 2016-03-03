@@ -21,21 +21,27 @@ export default class App extends React.Component {
     setTimeout(this.updateData.bind(this), 1000);
   }
 
-  updateData() {
-    this.setState({ data: [1, 2, 3] });
-  }
-
-  render() {
+  getContextualComponent() {
     let comp;
     if (this.state.data === null) {
       comp = <Chargement />;
     } else {
       comp = <Liste titre="Naf" contenu={this.state.data} />;
     }
+    return comp;
+  }
+
+  updateData() {
+    this.setState({
+      data: ['niveau-1', 'niveau-2', 'niveau-3'],
+    });
+  }
+
+  render() {
     return (
       <div>
         <Welcome titre="l e i f" soustitre="Navigateur de nomenclatures" />
-        {comp}
+        {this.getContextualComponent()}
       </div>
     );
   }

@@ -7,7 +7,7 @@ export default class Liste extends React.Component {
         <h1>{this.props.titre}</h1>
         <ul>
         {
-          this.props.contenu.map((item, i) => <li key={i}>{item} - {i}</li>)
+          this.props.contenu.map((item, i) => <li key={i}>{item}</li>)
         }
         </ul>
       </div>
