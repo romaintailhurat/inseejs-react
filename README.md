@@ -2,6 +2,8 @@
 
 Cette petite application fournit un exemple simple mais complet d'application *web native* de la filière Javascript.
 
+> Attention ! Certaines fonctionnalités (comme l'API [fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch)) requièrent un navigateur récent.
+
 ## Installation
 
 Les pré-requis :
