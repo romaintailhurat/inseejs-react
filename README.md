@@ -30,7 +30,7 @@ npm install
 Pour visualiser l'application :
 
 ```bash
-webpack-dev-server --progress --colors
+npm run serve
 ```
 
 L'application est maintenant visible ici : http://localhost:8080
