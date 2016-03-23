@@ -6,7 +6,7 @@ export function storeList(state = {}, action) {
     case RECEIVE_NAF:
       console.log("JSON", action.data);
       return Object.assign({}, state, {
-        naf: ['niveau-1', 'niveau-2', 'niveau-3'],
+        naf: action.data,
       });
     default:
       return state;

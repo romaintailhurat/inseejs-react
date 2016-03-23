@@ -13,6 +13,6 @@ export function loadNAF() {
   headers.append('Accept', 'application/json');
   fetch(createQuery(nafQuery), { headers })
       .then(response => response.json())
-      .then(json => listStore.dispatch(receiveNAF(json)));
+      .then(json => listStore.dispatch(receiveNAF(json.results.bindings)));
   return { type: LOAD_NAF };
 }

@@ -17,7 +17,7 @@ export default class App extends React.Component {
   componentWillMount() {
     listStore.subscribe(() => {
       this.setState({
-        data: ['niveau-1', 'niveau-2', 'niveau-4'],
+        data: listStore.getState().naf,
       });
     });
     this.getData();
@@ -29,7 +29,7 @@ export default class App extends React.Component {
 
   getContextualComponent() {
     let comp;
-    if (this.state.data === null) {
+    if (this.state.data === undefined) {
       comp = <Chargement />;
     } else {
       comp = <Liste titre="Naf" contenu={this.state.data} />;
