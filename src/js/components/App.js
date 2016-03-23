@@ -2,6 +2,8 @@ import React from 'react';
 import Welcome from './Welcome';
 import Liste from './Liste';
 import Chargement from './Chargement';
+import { listStore } from '../stores/stores';
+import { loadNAF } from '../actions/actions';
 
 export default class App extends React.Component {
 
@@ -13,11 +15,14 @@ export default class App extends React.Component {
   }
 
   componentWillMount() {
+    listStore.subscribe(() =>
+      console.log(listStore.getState())
+    );
     this.getData();
   }
 
   getData() {
-    // TODO query
+    listStore.dispatch(loadNAF());
     setTimeout(this.updateData.bind(this), 1000);
   }
 
