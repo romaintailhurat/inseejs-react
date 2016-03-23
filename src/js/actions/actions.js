@@ -1,4 +1,6 @@
 import { listStore } from '../stores/stores';
+import { nafQuery, createQuery } from '../queries';
+
 export const LOAD_NAF = 'LOAD_NAF';
 export const RECEIVE_NAF = 'RECEIVE_NAF';
 
@@ -7,7 +9,9 @@ export function receiveNAF(data) {
 }
 
 export function loadNAF() {
-  fetch('http://www.reddit.com/r/askreddit.json')
+  const headers = new Headers();
+  headers.append('Accept', 'application/json');
+  fetch(createQuery(nafQuery), { headers })
       .then(response => response.json())
       .then(json => listStore.dispatch(receiveNAF(json)));
   return { type: LOAD_NAF };
