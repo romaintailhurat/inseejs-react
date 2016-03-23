@@ -15,15 +15,16 @@ export default class App extends React.Component {
   }
 
   componentWillMount() {
-    listStore.subscribe(() =>
-      console.log(listStore.getState())
-    );
+    listStore.subscribe(() => {
+      this.setState({
+        data: ['niveau-1', 'niveau-2', 'niveau-4'],
+      });
+    });
     this.getData();
   }
 
   getData() {
     listStore.dispatch(loadNAF());
-    setTimeout(this.updateData.bind(this), 1000);
   }
 
   getContextualComponent() {
@@ -34,12 +35,6 @@ export default class App extends React.Component {
       comp = <Liste titre="Naf" contenu={this.state.data} />;
     }
     return comp;
-  }
-
-  updateData() {
-    this.setState({
-      data: ['niveau-1', 'niveau-2', 'niveau-3'],
-    });
   }
 
   render() {
