@@ -36,3 +36,13 @@ npm run serve
 ```
 
 L'application est maintenant visible ici : http://localhost:8080
+
+## Vérification du typage
+
+On utilise [flow](http://flowtype.org/) pour analyser statiquement le typage du code.
+
+Pour lancer une analyse :
+
+```bash
+npm run flow
+```
