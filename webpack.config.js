@@ -1,9 +1,11 @@
 var path = require("path");
+var webpack = require("webpack");
 
 module.exports = {
-  entry: {
-    app: ["./src/js/main.js"]
-  },
+  entry: [
+    './src/js/main.js',
+    'babel-polyfill'
+  ],
   module: {
     loaders: [
       { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader"}
@@ -13,5 +15,10 @@ module.exports = {
     path: __dirname,
     filename: "bundle.js"
   },
-  devtool: "source-map"
+  devtool: "source-map",
+  plugins: [
+  new webpack.ProvidePlugin({
+    'fetch': 'imports?this=>global!exports?global.fetch!whatwg-fetch'
+  })
+]
 }
