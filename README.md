@@ -36,3 +36,21 @@ npm run serve
 ```
 
 L'application est maintenant visible ici : http://localhost:8080
+
+## Tests unitaires
+
+Pour lancer les tests unitaires :
+
+```bash
+npm run test
+```
+
+## Linting
+
+La commande :
+
+```bash
+npm run lint
+```
+
+déclenche des opérations de qualité, par exemple lister les nouvelles versions des dépendances.
