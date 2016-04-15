@@ -54,3 +54,13 @@ npm run lint
 ```
 
 déclenche des opérations de qualité, par exemple lister les nouvelles versions des dépendances.
+
+## Vérification du typage
+
+On utilise [flow](http://flowtype.org/) pour analyser statiquement le typage du code.
+
+Pour lancer une analyse :
+
+```bash
+npm run flow
+```
