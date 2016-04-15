@@ -1,6 +1,5 @@
 var path = require("path");
 var webpack = require("webpack");
-var CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
   entry: [
@@ -13,18 +12,13 @@ module.exports = {
     ]
   },
   output: {
-    path: __dirname+'/dist',
+    path: __dirname,
     filename: "bundle.js"
   },
   devtool: "source-map",
   plugins: [
   new webpack.ProvidePlugin({
     'fetch': 'imports?this=>global!exports?global.fetch!whatwg-fetch'
-  }),
-  new CleanWebpackPlugin(['dist'], {
-      root: __dirname,
-      verbose: true,
-      dry: false
-    })
+  })
 ]
 }
