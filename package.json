@@ -6,7 +6,7 @@
   "scripts": {
     "test": "mocha --compilers js:babel-register",
     "serve": "webpack-dev-server --progress --colors",
-    "lint": "npm-check-updates && flow",
+    "lint": "npm-check-updates",
     "build": "webpack src/js/main.js bundle.js"
   },
   "author": "",
@@ -26,7 +26,6 @@
     "file-loader": "^0.8.5",
     "mocha": "^2.4.5",
     "react-addons-test-utils": "^15.0.1",
-    "flow-bin": "^0.22.1",
     "webpack": "^1.12.12",
     "webpack-dev-server": "^1.14.1"
   },
