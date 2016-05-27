@@ -39,7 +39,7 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div id="main">
         <Welcome titre="l e i f" soustitre="Navigateur de nomenclatures" />
         {this.getContextualComponent()}
       </div>
