@@ -28,13 +28,10 @@ export default class App extends React.Component {
   }
 
   getContextualComponent() {
-    let comp;
     if (this.state.data === undefined) {
-      comp = <Chargement />;
-    } else {
-      comp = <Liste titre="Naf" contenu={this.state.data} />;
+      return <Chargement />;
     }
-    return comp;
+    return <Liste titre="Naf" contenu={this.state.data} />;
   }
 
   render() {
