@@ -1,10 +1,12 @@
 import React from 'react';
+
 import Welcome from './Welcome';
-import Liste from './Liste';
 import Chargement from './Chargement';
 import Footer from './Footer';
+import ListeNomenclatures from './ListeNomenclatures';
 import { listStore } from '../stores/stores';
 import { loadNAF } from '../actions/actions';
+
 
 export default class App extends React.Component {
 
@@ -32,14 +34,15 @@ export default class App extends React.Component {
     if (this.state.data === undefined) {
       return <Chargement />;
     }
-    return <Liste titre="Naf" contenu={this.state.data} />;
+    return <ListeNomenclatures liste={['NAF', '<votre-nomenclature-ici>']} />;
   }
 
   render() {
     return (
       <div id="main">
         <Welcome titre="l e i f" soustitre="Navigateur de nomenclatures" />
-        {this.getContextualComponent()}
+        <ListeNomenclatures liste={['NAF', '<votre-nomenclature-ici>']} />
+        {this.props.children}
         <Footer />
       </div>
     );
