@@ -21,7 +21,7 @@ export function receiveSection(data) {
 }
 
 /**
-* Exécute une requête SPARQL
+* Exécute une requête SPARQL via HTTP
 * @param {string} query, la requête
 * @param {string} event, l'évènement produit
 * @param {function} callback, la fonction à exécuter en cas de succès

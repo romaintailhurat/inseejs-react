@@ -1,3 +1,7 @@
+/**
+ * Ce module contient les requêtes SPARQL utilisées par l'application.
+ * @module queries
+ */
 export const repo = 'http://rdf.insee.fr/sparql';
 
 export const fragment = '?query=';
@@ -22,13 +26,19 @@ export const sectionQuery = (code) => `
      }
 `;
 
-export const childrenQuery = (uri) => `PREFIX skos:<http://www.w3.org/2004/02/skos/core#>
-SELECT ?code ?label WHERE {
-  <${uri}>  skos:narrower ?child .
-	?child skos:notation ?code ; skos:prefLabel ?label .
-  FILTER langMatches (lang(?label), 'fr') } ORDER BY ?code
-  `;
+export const childrenQuery = (uri) => `
+  PREFIX skos:<http://www.w3.org/2004/02/skos/core#>
+  SELECT ?code ?label WHERE {
+    <${uri}>  skos:narrower ?child .
+    ?child skos:notation ?code ; skos:prefLabel ?label .
+    FILTER langMatches (lang(?label), 'fr')
+  } ORDER BY ?code
+`;
 
+/**
+ * Build a SPARQL query, adding protocol and host, encoding URL
+ * @param {string} query - a SPARQL query
+ */
 export function createQuery(query) {
   return `${repo}${fragment}${encodeURIComponent(query)}`;
 }
