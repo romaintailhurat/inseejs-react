@@ -21,7 +21,8 @@ export function receiveSection(data) {
 }
 
 /**
-* Exécute une requête SPARQL via HTTP
+* Exécute une requête SPARQL via HTTP, puis exécute une fonction sur les données
+* retournées par la réponse.
 * @param {string} query, la requête
 * @param {string} event, l'évènement produit
 * @param {function} callback, la fonction à exécuter en cas de succès
@@ -34,12 +35,15 @@ function executeSparql(query, callback) {
       .then(json => callback(json.results.bindings));
 }
 
-function executeSparqlAndDispatch(query, event, callback) {
+/**
+ * Exécute une requête SPARQL via HTTP, puis envoie une action.
+ */
+function executeSparqlAndDispatch(query, event, action) {
   const headers = new Headers();
   headers.append('Accept', 'application/json');
   fetch(createQuery(query), { headers })
       .then(response => response.json())
-      .then(json => listStore.dispatch(callback(json.results.bindings)));
+      .then(json => listStore.dispatch(action(json.results.bindings)));
   return { type: event };
 }
 

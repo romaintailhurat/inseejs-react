@@ -5,11 +5,11 @@ export function storeList(state = {}, action) {
   switch (action.type) {
     case RECEIVE_NAF:
       return Object.assign({}, state, {
-        naf: action.data,
+        items: action.data,
       });
     case RECEIVE_SECTION:
       return Object.assign({}, state, {
-        naf: action.data,
+        items: action.data,
       });
     default:
       return state;

@@ -11,7 +11,8 @@ import Nomenclature from './components/Nomenclature';
 
 require('file?name=[name].[ext]!../../index.html');
 
-console.log(`Chargement de l'application [${new Date().toTimeString()}]`);
+console.log( // eslint-disable-line no-console
+  `Chargement de l'application [${new Date().toTimeString()}]`);
 
 ReactDOM.render(
   <Router history={browserHistory}>

@@ -4,12 +4,16 @@ import Liste from './Liste';
 import { listStore } from '../stores/stores';
 import { loadNAF } from '../actions/actions';
 
+/**
+ * Ce composant gère l'affichage d'une nomenclature.
+ * C'est un composant à état, celui-ci étant géré dans le store ad hoc.
+ */
 export default class Nomenclature extends React.Component {
 
   componentWillMount() {
     listStore.subscribe(() => {
       this.setState({
-        data: listStore.getState().naf,
+        data: listStore.getState().items,
       });
     });
     this.getData();
@@ -29,7 +33,6 @@ export default class Nomenclature extends React.Component {
   render() {
     return (
       <div>
-        <p>Nomenclature : {this.props.params.nom}</p>
         {this.getContextualComponent()}
       </div>
     );
