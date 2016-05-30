@@ -16,6 +16,6 @@ describe('Store', function() {
   it('doit modifier l\'état', function() {
     listStore.dispatch({ type: RECEIVE_NAF, data: DUMMY_NAF_DATA});
     let stateAfter = listStore.getState();
-    assert.equal(stateAfter.naf, DUMMY_NAF_DATA);
+    assert.equal(stateAfter.items, DUMMY_NAF_DATA);
   });
 });
