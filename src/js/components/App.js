@@ -2,6 +2,7 @@ import React from 'react';
 import Welcome from './Welcome';
 import Liste from './Liste';
 import Chargement from './Chargement';
+import Footer from './Footer';
 import { listStore } from '../stores/stores';
 import { loadNAF } from '../actions/actions';
 
@@ -39,6 +40,7 @@ export default class App extends React.Component {
       <div id="main">
         <Welcome titre="l e i f" soustitre="Navigateur de nomenclatures" />
         {this.getContextualComponent()}
+        <Footer />
       </div>
     );
   }
