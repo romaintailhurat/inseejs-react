@@ -1,10 +1,15 @@
-import { listStore } from '../stores/stores';
 import {
   nafQuery,
   sectionQuery,
   childrenQuery,
-  createQuery,
 } from '../queries';
+
+import {
+  executeSparql,
+  executeSparqlAndDispatch,
+} from '../http';
+
+// ----- CONSTANTES
 
 export const LOAD_NAF = 'LOAD_NAF';
 export const LOAD_SECTION = 'LOAD_SECTION';
@@ -12,39 +17,14 @@ export const LOAD_SECTION = 'LOAD_SECTION';
 export const RECEIVE_NAF = 'RECEIVE_NAF';
 export const RECEIVE_SECTION = 'RECEIVE_SECTION';
 
+// ----- ACTIONS
+
 export function receiveNAF(data) {
   return { type: RECEIVE_NAF, data };
 }
 
 export function receiveSection(data) {
   return { type: RECEIVE_SECTION, data };
-}
-
-/**
-* Exécute une requête SPARQL via HTTP, puis exécute une fonction sur les données
-* retournées par la réponse.
-* @param {string} query, la requête
-* @param {string} event, l'évènement produit
-* @param {function} callback, la fonction à exécuter en cas de succès
-*/
-function executeSparql(query, callback) {
-  const headers = new Headers();
-  headers.append('Accept', 'application/json');
-  fetch(createQuery(query), { headers })
-      .then(response => response.json())
-      .then(json => callback(json.results.bindings));
-}
-
-/**
- * Exécute une requête SPARQL via HTTP, puis envoie une action.
- */
-function executeSparqlAndDispatch(query, event, action) {
-  const headers = new Headers();
-  headers.append('Accept', 'application/json');
-  fetch(createQuery(query), { headers })
-      .then(response => response.json())
-      .then(json => listStore.dispatch(action(json.results.bindings)));
-  return { type: event };
 }
 
 export function loadChildren(data) {
@@ -57,4 +37,20 @@ export function loadNAF() {
 
 export function loadSection(code) {
   return executeSparql(sectionQuery(code), loadChildren);
+}
+
+/** Liste des nomenclatures et des fonctions de chargement associées. */
+// TODO Mettre en oeuvre une requête SPARQL générique à la place
+export const NOMENCLATURES = {
+  naf: loadNAF,
+  dummy: loadNAF,
+};
+
+/** Action générique de chargement */
+export function loadNomenclature(nom) {
+  const noms = Object.keys(NOMENCLATURES);
+  if (noms.indexOf(nom) < 0) {
+    throw Error('Cette nomenclature n\'est pas supportée.');
+  }
+  return NOMENCLATURES[nom]();
 }

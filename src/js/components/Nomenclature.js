@@ -2,7 +2,7 @@ import React from 'react';
 import Chargement from './Chargement';
 import Liste from './Liste';
 import { listStore } from '../stores/stores';
-import { loadNAF } from '../actions/actions';
+import { loadNomenclature } from '../actions/actions';
 
 /**
  * Ce composant gère l'affichage d'une nomenclature.
@@ -20,7 +20,7 @@ export default class Nomenclature extends React.Component {
   }
 
   getData() {
-    listStore.dispatch(loadNAF());
+    listStore.dispatch(loadNomenclature(this.props.params.nom));
   }
 
   getContextualComponent() {
