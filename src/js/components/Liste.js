@@ -10,7 +10,7 @@ export default class Liste extends React.Component {
   render() {
     return (
       <div>
-        <h1 className="titre">{this.props.titre}</h1>
+        <h1 className="titre">{this.props.titre.toUpperCase()}</h1>
         <ul>
         {
           this.props.contenu.map((item) =>

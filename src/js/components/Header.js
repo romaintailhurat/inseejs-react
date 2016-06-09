@@ -1,9 +1,11 @@
 import React from 'react';
 
 const Header = (props) =>
-  <div>
-    <h1>{props.titre}</h1>
-    <h2>{props.soustitre}</h2>
+  <div className="jumbotron">
+    <div className="container">
+      <h1><a href="/">{props.titre}</a></h1>
+      <h2>{props.soustitre}</h2>
+    </div>
   </div>;
 
 Header.propTypes = {
