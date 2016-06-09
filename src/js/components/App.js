@@ -1,5 +1,5 @@
 import React from 'react';
-import Welcome from './Welcome';
+import Header from './Header';
 import Footer from './Footer';
 import ListeNomenclatures from './ListeNomenclatures';
 import { NOMENCLATURES } from '../actions/actions';
@@ -7,7 +7,7 @@ import { NOMENCLATURES } from '../actions/actions';
 /** Composant d'affichage principal. */
 const App = (props) =>
   <div id="main" className="row">
-    <Welcome titre="l e i f" soustitre="Navigateur de nomenclatures" />
+    <Header titre="Leif" soustitre="Navigateur de nomenclatures" />
     <div className="col-md-4">
       <ListeNomenclatures liste={Object.keys(NOMENCLATURES)} />
     </div>

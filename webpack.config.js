@@ -4,6 +4,7 @@ var CleanWebpackPlugin = require('clean-webpack-plugin');
 var childProcess = require('child_process');
 var fs = require('fs');
 
+// Récupération du hash court du dernier commit
 var VERSION = childProcess.execSync('git rev-parse --short HEAD').toString();
 fs.writeFileSync('version.json', JSON.stringify({version: VERSION}));
 

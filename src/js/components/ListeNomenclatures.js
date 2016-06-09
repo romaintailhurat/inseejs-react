@@ -8,9 +8,9 @@ import { Link } from 'react-router';
  */
 const ListeNomenclatures = (props) =>
   <div>
-    <ul>{
+    <ul className="list-group">{
       props.liste.map((nom) =>
-        <li key={nom}>
+        <li className="list-group-item" key={nom}>
           <Link to={`/nomenclature/${nom.toLowerCase()}`}>
             {nom}
           </Link>
