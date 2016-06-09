@@ -6,16 +6,21 @@ import { NOMENCLATURES } from '../actions/actions';
 
 /** Composant d'affichage principal. */
 const App = (props) =>
-  <div id="main">
+  <div id="main" className="row">
     <Welcome titre="l e i f" soustitre="Navigateur de nomenclatures" />
-    <ListeNomenclatures liste={Object.keys(NOMENCLATURES)} />
-    { /* Composant(s) fournit selon l'URL par le router */ }
-    {props.children}
-    <Footer />
+    <div className="col-md-4">
+      <ListeNomenclatures liste={Object.keys(NOMENCLATURES)} />
+    </div>
+    <div className="col-md-8">
+      { /* Composant(s) fournit selon l'URL par le router */ }
+      {props.children}
+    </div>
+    <Footer version={props.route.version} />
   </div>;
 
 App.propTypes = {
   children: React.PropTypes.object,
+  route: React.PropTypes.object,
 };
 
 export default App;

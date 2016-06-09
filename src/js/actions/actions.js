@@ -43,7 +43,8 @@ export function loadSection(code) {
 // TODO Mettre en oeuvre une requête SPARQL générique à la place
 export const NOMENCLATURES = {
   naf: loadNAF,
-  dummy: loadNAF,
+  pcs2003: loadNAF,
+  cj: loadNAF,
 };
 
 /** Action générique de chargement */

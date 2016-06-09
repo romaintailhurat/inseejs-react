@@ -2,6 +2,10 @@
  * Ce module contient les requêtes SPARQL utilisées par l'application.
  * @module queries
  */
+// TODO implémenter pour
+// http://rdf.insee.fr/graphes/codes/cj
+// http://rdf.insee.fr/graphes/codes/pcs2003
+
 export const repo = 'http://rdf.insee.fr/sparql';
 
 export const fragment = '?query=';
