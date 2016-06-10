@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 import { loadSection } from '../actions/actions';
 
 export default class Liste extends React.Component {
@@ -15,9 +16,7 @@ export default class Liste extends React.Component {
         {
           this.props.contenu.map((item) =>
             <li key={item.code.value}>
-              <a href="#" onClick={() => this.handleClick(item.code.value)}>
-                {item.label.value}
-              </a>
+              <Link to={`/nomenclature/naf/${item.code.value}`}>{item.label.value}</Link>
             </li>)
         }
         </ul>

@@ -20,6 +20,22 @@ export const nafQuery = `
   } ORDER BY ?code
 `;
 
+/**
+ * Requête de sélection de toute la NAF, y compris les enfants d'un niveau donné.
+ */
+export const allNafQuery = `
+  PREFIX skos:<http://www.w3.org/2004/02/skos/core#>
+  SELECT ?code ?label ?uri ( group_concat(?child ; separator=";") as ?children ) WHERE {
+    ?uri skos:prefLabel ?label  ;
+         skos:notation ?code ;
+         skos:inScheme <http://id.insee.fr/codes/nafr2/naf> .
+    ?child skos:broader ?uri .
+    FILTER langMatches (lang(?label), "fr")
+  }
+  GROUP BY ?code ?label ?uri
+  ORDER BY ?code
+`;
+
 export const sectionQuery = (code) => `
   PREFIX skos:<http://www.w3.org/2004/02/skos/core#>
   SELECT ?uri ?label ?code  WHERE {

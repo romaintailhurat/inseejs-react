@@ -31,6 +31,7 @@ export default class Nomenclature extends React.Component {
   }
 
   render() {
+    console.log('params', this.props.params);
     return (
       <div>
         {this.getContextualComponent()}

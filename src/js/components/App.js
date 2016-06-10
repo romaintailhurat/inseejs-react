@@ -12,7 +12,7 @@ const App = (props) =>
       <ListeNomenclatures liste={Object.keys(NOMENCLATURES)} />
     </div>
     <div className="col-md-8">
-      { /* Composant(s) fournit selon l'URL par le router */ }
+      {/* Composant(s) fournit selon l'URL par le router */}
       {props.children}
     </div>
     <Footer version={props.route.version} />

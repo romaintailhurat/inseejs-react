@@ -21,7 +21,7 @@ console.log( // eslint-disable-line no-console
 ReactDOM.render(
   <Router history={browserHistory}>
     <Route path="/" version={version} component={App}>
-      <Route path="/nomenclature/:nom" component={Nomenclature} />
+      <Route path="/nomenclature/:nom(/:code)" component={Nomenclature} />
       <Route path="/credits" component={Credits} />
     </Route>
   </Router>,
