@@ -1,0 +1,59 @@
+[
+{
+  "code": {
+    "type": "literal",
+    "value": "01"
+  },
+  "label": {
+    "type": "literal",
+    "xml:lang": "fr",
+    "value": "Culture et production animale, chasse et services annexes"
+  },
+  "uri": {
+    "type": "uri",
+    "value": "http://id.insee.fr/codes/nafr2/division/01"
+  },
+  "children": {
+    "type": "literal",
+    "value": "http://id.insee.fr/codes/nafr2/groupe/01.2;http://id.insee.fr/codes/nafr2/groupe/01.6;http://id.insee.fr/codes/nafr2/groupe/01.7;http://id.insee.fr/codes/nafr2/groupe/01.4;http://id.insee.fr/codes/nafr2/groupe/01.5;http://id.insee.fr/codes/nafr2/groupe/01.3;http://id.insee.fr/codes/nafr2/groupe/01.1"
+  }
+},
+{
+  "code": {
+    "type": "literal",
+    "value": "02"
+  },
+  "label": {
+    "type": "literal",
+    "xml:lang": "fr",
+    "value": "Sylviculture et exploitation forestière"
+  },
+  "uri": {
+    "type": "uri",
+    "value": "http://id.insee.fr/codes/nafr2/division/02"
+  },
+  "children": {
+    "type": "literal",
+    "value": "http://id.insee.fr/codes/nafr2/groupe/02.1;http://id.insee.fr/codes/nafr2/groupe/02.2;http://id.insee.fr/codes/nafr2/groupe/02.3;http://id.insee.fr/codes/nafr2/groupe/02.4"
+  }
+},
+{
+  "code": {
+    "type": "literal",
+    "value": "03"
+  },
+  "label": {
+    "type": "literal",
+    "xml:lang": "fr",
+    "value": "Pêche et aquaculture"
+  },
+  "uri": {
+    "type": "uri",
+    "value": "http://id.insee.fr/codes/nafr2/division/03"
+  },
+  "children": {
+    "type": "literal",
+    "value": "http://id.insee.fr/codes/nafr2/groupe/03.2;http://id.insee.fr/codes/nafr2/groupe/03.1"
+  }
+}
+]
