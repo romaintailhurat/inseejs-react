@@ -2,7 +2,15 @@ import React from 'react';
 import Chargement from './Chargement';
 import Liste from './Liste';
 import { listStore } from '../stores/stores';
-import { loadNomenclature } from '../actions/actions';
+import {
+  loadNomenclature,
+} from '../actions/actions';
+
+function filterByCode(rawData, code) {
+  const codeObject = rawData.find(element => element.code.value === code);
+  const children = codeObject.children.value.split(';');
+  return rawData.filter(i => children.indexOf(i.uri.value) > -1);
+}
 
 /**
  * Ce composant gère l'affichage d'une nomenclature.
@@ -13,7 +21,8 @@ export default class Nomenclature extends React.Component {
   componentWillMount() {
     listStore.subscribe(() => {
       this.setState({
-        data: listStore.getState().items,
+        rawData: listStore.getState().rawData,
+        items: listStore.getState().items,
       });
     });
     this.getData();
@@ -24,14 +33,19 @@ export default class Nomenclature extends React.Component {
   }
 
   getContextualComponent() {
-    if (this.state.data === undefined) {
+    let items = null;
+    if (this.state.rawData === undefined) {
       return <Chargement />;
     }
-    return <Liste titre={this.props.params.nom} contenu={this.state.data} />;
+    if (this.props.params.code) {
+      items = filterByCode(this.state.rawData, this.props.params.code);
+    } else {
+      items = this.state.items;
+    }
+    return <Liste titre={this.props.params.nom} contenu={items} />;
   }
 
   render() {
-    console.log('params', this.props.params);
     return (
       <div>
         {this.getContextualComponent()}

@@ -1,4 +1,5 @@
 import {
+  allNafQuery,
   nafQuery,
   sectionQuery,
   childrenQuery,
@@ -17,6 +18,8 @@ export const LOAD_SECTION = 'LOAD_SECTION';
 export const RECEIVE_NAF = 'RECEIVE_NAF';
 export const RECEIVE_SECTION = 'RECEIVE_SECTION';
 
+export const BROWSE_CLASSIFICATION = 'BROWSE_CLASSIFICATION';
+
 // ----- ACTIONS
 
 export function receiveNAF(data) {
@@ -27,12 +30,16 @@ export function receiveSection(data) {
   return { type: RECEIVE_SECTION, data };
 }
 
+export function browseSection(code) {
+  return { type: BROWSE_CLASSIFICATION, code };
+}
+
 export function loadChildren(data) {
   return executeSparqlAndDispatch(childrenQuery(data[0].uri.value), LOAD_SECTION, receiveSection);
 }
 
 export function loadNAF() {
-  return executeSparqlAndDispatch(nafQuery, LOAD_NAF, receiveNAF);
+  return executeSparqlAndDispatch(allNafQuery, LOAD_NAF, receiveNAF);
 }
 
 export function loadSection(code) {
