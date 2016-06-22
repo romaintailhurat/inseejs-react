@@ -47,7 +47,7 @@ export default class Nomenclature extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="col-md-8">
         {this.getContextualComponent()}
       </div>
     );

@@ -7,7 +7,7 @@ import { Link } from 'react-router';
  * ex : /nomenclature/naf
  */
 const ListeNomenclatures = (props) =>
-  <div>
+  <div className="col-md-4">
     <ul className="list-group">{
       props.liste.map((nom) =>
         <li className="list-group-item" key={nom}>

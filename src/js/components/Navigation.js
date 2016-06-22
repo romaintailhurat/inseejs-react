@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 const Navigation = (props) =>
   <div className="row">
@@ -6,10 +7,10 @@ const Navigation = (props) =>
       <a className="navbar-brand" href="/">{props.titre}</a>
       <ul className="nav navbar-nav">
         <li className="nav-item">
-          <a className="nav-link" href="#">Nomenclature</a>
+          <Link to="/nomenclature" className="nav-link">Nomenclatures</Link>
         </li>
         <li className="nav-item">
-          <a className="nav-link" href="#">Concepts</a>
+          <Link to="/concept" className="nav-link">Concepts</Link>
         </li>
         <li className="nav-item">
           <a className="nav-link" href="#">About</a>
