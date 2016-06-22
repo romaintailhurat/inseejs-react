@@ -8,6 +8,7 @@ import {
 import App from './components/App';
 import Credits from './components/Credits';
 import Nomenclature from './components/Nomenclature';
+import Concept from './components/Concept';
 
 // Liste de fichiers / dossiers à ajouter au build Webpack
 require('file?name=[name].[ext]!../../index.html');
@@ -22,6 +23,7 @@ ReactDOM.render(
   <Router history={browserHistory}>
     <Route path="/" version={version} component={App}>
       <Route path="/nomenclature/:nom(/:code)" component={Nomenclature} />
+      <Route path="/concept" component={Concept} />
       <Route path="/credits" component={Credits} />
     </Route>
   </Router>,
