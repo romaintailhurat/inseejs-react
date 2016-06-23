@@ -55,6 +55,17 @@ export const childrenQuery = (uri) => `
   } ORDER BY ?code
 `;
 
+export const conceptsQuery = `
+  PREFIX skos:<http://www.w3.org/2004/02/skos/core#>
+  SELECT ?concept ?label ?defs ( group_concat(?def ; separator=";") as ?defs ) WHERE {
+  	?concept skos:inScheme <http://id.insee.fr/concepts/definitions/scheme> .
+          ?concept skos:definition ?def .
+          ?concept skos:prefLabel ?label .
+  FILTER langMatches (lang(?label), "fr")
+  }
+  GROUP BY ?concept ?label
+`;
+
 /**
  * Build a SPARQL query, adding protocol and host, encoding URL
  * @param {string} query - a SPARQL query
