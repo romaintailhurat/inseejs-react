@@ -5,6 +5,7 @@ import {
   Route,
   browserHistory,
 } from 'react-router';
+import Accueil from './components/Accueil';
 import App from './components/App';
 import Credits from './components/Credits';
 import Nomenclature from './components/Nomenclature';
@@ -22,7 +23,8 @@ console.log( // eslint-disable-line no-console
 
 ReactDOM.render(
   <Router history={browserHistory}>
-    <Route path="/" version={version} component={App}>
+    <Route version={version} component={App}>
+      <Route path="/" component={Accueil} />
       <Route path="/nomenclature" component={NomenclatureView}>
         <Route path=":nom(/:code)" component={Nomenclature} />
       </Route>
