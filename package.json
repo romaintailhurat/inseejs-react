@@ -38,6 +38,7 @@
     "imports-loader": "^0.6.5",
     "object-assign": "^4.1.0",
     "react": "^15.1.0",
+    "react-autocomplete": "^1.0.0",
     "react-dom": "^15.1.0",
     "react-router": "^2.4.1",
     "redux": "^3.5.2",
