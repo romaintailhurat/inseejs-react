@@ -7,13 +7,10 @@ const Navigation = (props) =>
       <a className="navbar-brand" href="/">{props.titre}</a>
       <ul className="nav navbar-nav">
         <li className="nav-item">
-          <Link to="/nomenclature" className="nav-link">Nomenclatures</Link>
+          <Link to="/nomenclature" className="nav-link" activeClassName="active">Nomenclatures</Link>
         </li>
         <li className="nav-item">
-          <Link to="/concept" className="nav-link">Concepts</Link>
-        </li>
-        <li className="nav-item">
-          <a className="nav-link" href="#">About</a>
+          <Link to="/concept" className="nav-link" activeClassName="active">Concepts</Link>
         </li>
       </ul>
     </nav>

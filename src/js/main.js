@@ -10,7 +10,7 @@ import App from './components/App';
 import Credits from './components/Credits';
 import Nomenclature from './components/Nomenclature';
 import NomenclatureView from './components/NomenclatureView';
-import Concept from './components/Concept';
+import ConceptView from './components/ConceptView';
 
 // Liste de fichiers / dossiers à ajouter au build Webpack
 require('file?name=[name].[ext]!../../index.html');
@@ -29,7 +29,7 @@ ReactDOM.render(
         <Route path=":nom(/:code)" component={Nomenclature} />
       </Route>
       {/* <Route path="/nomenclature/:nom(/:code)" component={Nomenclature} /> */}
-      <Route path="/concept" component={Concept} />
+      <Route path="/concept" component={ConceptView} />
       <Route path="/credits" component={Credits} />
     </Route>
   </Router>,
