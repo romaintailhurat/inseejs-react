@@ -3,6 +3,7 @@ import {
   nafQuery,
   sectionQuery,
   childrenQuery,
+  conceptsQuery,
 } from '../queries';
 
 import {
@@ -14,9 +15,11 @@ import {
 
 export const LOAD_NAF = 'LOAD_NAF';
 export const LOAD_SECTION = 'LOAD_SECTION';
+export const LOAD_CONCEPTS = 'LOAD_CONCEPTS';
 
 export const RECEIVE_NAF = 'RECEIVE_NAF';
 export const RECEIVE_SECTION = 'RECEIVE_SECTION';
+export const RECEIVE_CONCEPTS = 'RECEIVE_CONCEPTS';
 
 export const BROWSE_CLASSIFICATION = 'BROWSE_CLASSIFICATION';
 
@@ -34,6 +37,10 @@ export function browseSection(code) {
   return { type: BROWSE_CLASSIFICATION, code };
 }
 
+export function receiveConcepts(data) {
+  return { type: RECEIVE_CONCEPTS, data };
+}
+
 export function loadChildren(data) {
   return executeSparqlAndDispatch(childrenQuery(data[0].uri.value), LOAD_SECTION, receiveSection);
 }
@@ -44,6 +51,10 @@ export function loadNAF() {
 
 export function loadSection(code) {
   return executeSparql(sectionQuery(code), loadChildren);
+}
+
+export function loadConcepts() {
+  return executeSparqlAndDispatch(conceptsQuery(), LOAD_CONCEPTS, receiveConcepts);
 }
 
 /** Liste des nomenclatures et des fonctions de chargement associées. */

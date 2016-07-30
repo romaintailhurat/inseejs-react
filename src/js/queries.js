@@ -55,7 +55,7 @@ export const childrenQuery = (uri) => `
   } ORDER BY ?code
 `;
 
-export const conceptsQuery = `
+export const conceptsQuery = () => `
   PREFIX skos:<http://www.w3.org/2004/02/skos/core#>
   SELECT ?concept ?label ?defs ( group_concat(?def ; separator=";") as ?defs ) WHERE {
   	?concept skos:inScheme <http://id.insee.fr/concepts/definitions/scheme> .

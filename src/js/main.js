@@ -11,6 +11,10 @@ import Credits from './components/Credits';
 import Nomenclature from './components/Nomenclature';
 import NomenclatureView from './components/NomenclatureView';
 import ConceptView from './components/ConceptView';
+import { listStore } from './stores/stores';
+import {
+  loadConcepts,
+} from './actions/actions';
 
 // Liste de fichiers / dossiers à ajouter au build Webpack
 require('file?name=[name].[ext]!../../index.html');
@@ -20,6 +24,9 @@ console.log( // eslint-disable-line no-console
   `Chargement de l'application [${new Date().toTimeString()}]`);
 console.log( // eslint-disable-line no-console
   `https://github.com/romaintailhurat/inseejs-react/commit/${version}`);
+
+// Récupération des concepts
+listStore.dispatch(loadConcepts());
 
 ReactDOM.render(
   <Router history={browserHistory}>

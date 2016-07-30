@@ -1,5 +1,8 @@
 import {
-  RECEIVE_NAF, RECEIVE_SECTION, BROWSE_CLASSIFICATION,
+  RECEIVE_NAF,
+  RECEIVE_SECTION,
+  BROWSE_CLASSIFICATION,
+  RECEIVE_CONCEPTS,
 } from '../actions/actions';
 import { createStore } from 'redux';
 
@@ -37,6 +40,10 @@ export function storeList(state = {}, action) {
     case BROWSE_CLASSIFICATION:
       return Object.assign({}, state, {
         items: filterByCode(state.rawData, action.code),
+      });
+    case RECEIVE_CONCEPTS:
+      return Object.assign({}, state, {
+        concepts: action.data,
       });
     default:
       return state;
